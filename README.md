@@ -32,3 +32,5 @@ The purpose of this project is to consolidate and practice all the knowledge you
 <li>The URL of the slides for your project presentation.</li>
 <li>You must present your game during Module 1 project presentations (last day of Module 1 project).</li>
 </ul>
+
+<h3>Follow the Trello Board : <a href="https://trello.com/invite/b/c998qjYV/ATTI1df01b8c32d166cb3d20af9ba54e266d16489147/myfirstgameproject">Here</a></h3>
