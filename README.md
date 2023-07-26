@@ -34,3 +34,18 @@ The purpose of this project is to consolidate and practice all the knowledge you
 </ul>
 
 <h3>Follow the Trello Board : <a href="https://trello.com/invite/b/c998qjYV/ATTI1df01b8c32d166cb3d20af9ba54e266d16489147/myfirstgameproject">Here</a></h3>
+
+## UX/UI Choices
+
+<h2>Fonts</h2>
+Sakura Titles font
+Mochiy lisible body font
+AsianCuisine font for Rikyu
+
+<h2>Color Palette</h2>
+Bacground analogous color medium, left, right: #F0EAD9 , #EAF0D9, #F0DED9
+
+Texte Color : #383734
+Texte decoration : #beb9ac, #8e8b82, #615f59
+
+Accentuation dark, clear: #de425b, #f09fa2

@@ -1,6 +1,113 @@
+/* CSS fonts */
+
+@font-face {
+	font-family: 'Sakura';
+	src: url("/fonts/sakura-kei/Sakura.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Mochiy';
+	src: url("/fonts/mochiy/Mochiy.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'AsianCuisine';
+	src: url("/fonts/asiancuisine/asiancuisine.ttf") format("truetype");
+}
+
+
 /* CSS initialisation settings */
 
 body {
-    padding: 0;
-    margin: 0;
-  }
+  padding: 0 30px;
+  margin: 0;
+  font-family: 'Mochiy', sans-serif;
+  font-size: 18px;
+  color: #383734;
+  text-align: center;
+  background-image: url("/images/Paper-Bg.jpg");
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Sakura', sans-serif;
+}
+
+span {
+  font-family: 'AsianCuisine', sans-serif;
+  font-size: 1.4em;
+}
+
+
+/* Button settings */
+button {
+  font-family: 'Mochiy', sans-serif;
+}
+
+.button2 {
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #de425b;
+  padding: 0.7em 1.7em;
+  font-size: 1em;
+  border-radius: 0.5em;
+  background: #F0EAD9;
+  border: 1px solid #f09fa2;  
+}
+
+.button2:active {
+  color: #EAF0D9;
+  box-shadow: inset 4px 4px 8px #f09fa2,
+             inset -4px -4px 8px #F0DED9;
+}
+
+.button2:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button2:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #EAF0D9;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button2:hover {
+  color: #EAF0D9;
+  border: 1px solid #EAF0D9;
+}
+
+.button2:hover:before {
+  top: -35%;
+  background-color: #de425b;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+  top: -45%;
+  background-color: #de425b;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
