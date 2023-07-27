@@ -38,14 +38,18 @@ The purpose of this project is to consolidate and practice all the knowledge you
 ## UX/UI Choices
 
 <h2>Fonts</h2>
-Sakura Titles font
+Hogback Titles font
 Mochiy lisible body font
 AsianCuisine font for Rikyu
 
 <h2>Color Palette</h2>
-Bacground analogous color medium, left, right: #F0EAD9 , #EAF0D9, #F0DED9
+Bacground analogous color medium, left, right: #F0EAD9 , #DAF0D9, #F0CED9
 
 Texte Color : #383734
 Texte decoration : #beb9ac, #8e8b82, #615f59
 
-Accentuation dark, clear: #de425b, #f09fa2
+Accentuation dark, clear: #de425b, #
+
+River Blue and Shadow : #14BDEB, #3083DC
+
+##
