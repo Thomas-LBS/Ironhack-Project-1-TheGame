@@ -20,7 +20,6 @@
 
 
 /* CSS initialisation settings */
-
 body {
   padding: 0;
   margin: 0;
@@ -28,8 +27,16 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: #383734;
+  background-color: #F0EAD9;
   background-image: url("/images/Paper-Bg.jpg");
 }
+
+#page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
 
 h1, h2, h3, h4 {
   font-family: 'Titles', sans-serif;
@@ -52,8 +59,26 @@ span {
 }
 
 .left {
-  text-align: left;
   text-align: justify;
+}
+
+
+/* section's display */
+
+#first-screen {
+  display: block;
+}
+
+#launch-screen {
+  display: none;
+}
+
+#play-screen {
+  display: none;
+}
+
+#end-screen {
+  display: none;
 }
 
 
@@ -62,9 +87,13 @@ span {
 button {
   font-family: 'General', sans-serif;
   text-align: center;
-  margin: 25px 0;
+  margin: 20px 0;
   width: 350px;
   }
+
+#home-btn, #restart-btn {
+  margin: 5px 0;
+}
 
 .button2 {
   display: inline-block;
@@ -134,24 +163,75 @@ button {
 }
 
 
-/* CSS Images Settings */
+/* CSS Generals Settings */
 
-#logo-big {
-  width: 65%;
+.logo {
+  width: 60%;
+  min-width: 500px;
 }
 
-header, main, footer, section {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+#arrows {
+  width: 60%;
 }
+
+header, main, footer, section, article {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+article {
+  min-width: 400px;
+  width: 60%;
+  
+}
+
+.river-bg {
+  align-content: center;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  background-image: url(/images/river-bg.png);
+  background-size: cover;
+  animation: slide linear infinite;
+  animation-duration: 10s;
+  margin: auto;
+  width: 500px;
+  height: 700px;
+}
+
+#board-game {
+  align-content: center;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  background-image: url(/images/river-bg.png);
+  background-size: cover;
+  animation: slide linear infinite;
+  animation-duration: 10s;
+  margin: auto;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 -1000px;
+  }
+  95% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+
+
 
 /* mobile screen ---------------------------------------------------*/
 /* mobile screen ---------------------------------------------------*/
 /* mobile screen ---------------------------------------------------*/
 
 @media (max-width: 768px) {
-  
+  /*mobile 1st design method ^^ */
 }
 
 /* small screen ---------------------------------------------------*/
@@ -159,15 +239,8 @@ header, main, footer, section {
 /* small screen ---------------------------------------------------*/
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  #logo-big {
-    width:60%;
-  }
   
-  header, main, footer {
-    width: 80%;
-  }  
-
-  h1, h2, h3, h4 {
+ h1, h2, h3, h4 {
     font-size: 2em;
     }
   
@@ -185,16 +258,7 @@ header, main, footer, section {
 /* medium screen ---------------------------------------------------*/
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  #logo-big {
-    width:55%;
-  }
   
-  header, main, footer {
-    width: 70%;
-   }
-  
-  
-
   h1, h2, h3, h4 {
     font-size: 2.2em;
     }
@@ -213,14 +277,7 @@ header, main, footer, section {
 /*large screen ---------------------------------------------------*/
 
 @media (min-width: 1441px) {
-  #logo-big {
-    width:50%;
-  }
   
-  header, main, footer {
-    width: 60%;
-  }
-
   h1, h2, h3, h4 {
     font-size: 2.4em;
     }

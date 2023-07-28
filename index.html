@@ -24,21 +24,22 @@
 </head>
 
 <body>
+<div id="page-container">
 
-    <!-- Header for the logo --> 
+    <!-- Header for the logo -->
     <header>
         <div class="center">
-            <img src="/images/Logo Grand.png" id="logo-big" alt="Logo Koï Challenges, the Game">
+            <img id="logo-big" class="logo" src="/images/Logo-Grand.png" alt="Logo Koi Challenges the game">
+            <img id="logo-petit" class="logo" src="/images/Logo-Petit.png" alt="Logo Koi Challenges the game">            
         </div>
     </header>
-    
-    <main>
-        
+       
+    <main>                 
     <!-- Start screnn with the presentation and the start button --> 
         <section id="first-screen">
-                <div class="left">
-                <h1>The legend :</h1>
+            <div class="left">
                 <article id="legend">
+                    <h1>The legend :</h1>
                     Legend says that long ago, there was an abundance of golden koi fish in the Yellow River in China. They made their way upstream, going against the current, building strength and perseverance.
                     <br><br>Golden hue made the river shimmer as if it was a river of gold. Halfway upstream, they came to a large waterfall, an impossible height that is too high to traverse. This waterfall is known as the “Dragon’s Gate” in Hunan province. Most of the koi turned back, going with the current to safer ground. 
                     <br><br>However, some koi stayed and attempted to jump and surpass the waterfall. Some of them got halfway, but then pummelled back downstream after they’ve lost momentum and energy.
@@ -47,27 +48,36 @@
             </div>
 
             <div class="center">                
-                <button id="try-btn" class="button2">LET'S TRY IT</button>
+                <button id="try-btn" class="button2">LET'S PLAY !</button>
             </div>
         </section>
+      
 
     <!-- Launch screen with explanation of the game and keys -->
-        <section id="launch-screen">
-            <div class="center">
-
+        <section id="launch-screen" >
+            <div class="center river-bg">
+                <article id="game-instructions">
+                    <h1>Are you ready to go up the current ?</h1>
+                    <br>
+                    Control the Koï fish with keyboard arrows !<br><br>
+                    <img id="arrows" src="/images/Arrows.png" alt="Keyboard Arrows picture">
+                </article>
             </div>
-        </section>
-
-    <!-- Time to play the game -->
-        <section id="play-screen">
             <div class="center">
                 <button id="start-btn" class="button2">START</button>
             </div>
         </section>
 
+    <!-- Time to play the game -->
+        <section id="play-screen">
+            <div id="board-game" class="center">
+                
+            </div>
+        </section>
+
     <!-- End of the game, win or loose, restart or go back home -->
         <section id="end-screen">
-            <div class="center">
+            <div class="center river-bg">
                 <button id="restart-btn" class="button2">RESTART</button>
                 <br>
                 <button id="home-btn" class="button2">HOME</button>
@@ -77,20 +87,21 @@
 
 
     <!-- Footer for Rikyu generation -->
-    <footer>
+    <footer id="footer">
         <div class="center">                
             <p><span>" Ichi-go ichi-e "</span></p>
         </div>
-    </footer>
-    
+    </footer>    
 
-    
+
 
     <!-- JavaScript link -->
     <script type="text/javascript" src="/js/game.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="/js/player.js"></script>
     <script type="text/javascript" src="/js/ennemies.js"></script>
+
+</div>
 </body>
 
 </html>

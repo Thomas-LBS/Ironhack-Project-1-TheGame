@@ -54,3 +54,25 @@ River Blue and Shadow : #14BDEB, #3083DC
 
 ## Screens
 
+4 screens triggered by buttons :
+<b>first-screen</b> is the welcome page who present try-btn ->
+<b>launch-screen</b> is the presentation of game's rules who present start-btn ->
+<b>play-screen</b> is the game's page, if you win or loose you go to ->
+<b>end-screen</b> is the win or loose page with the restart-btn and home-btn.
+
+## script.js
+
+this file contain the windows onload, the buttons click actions, the handleKeydown functions and launch the Game class.
+
+## game.js
+this file contain the creation of the board game and the logic of the game
+
+## player.js
+this file contain the class Player
+
+## ennemies.js
+
+this file contain the class Ennemies
+
+
+
