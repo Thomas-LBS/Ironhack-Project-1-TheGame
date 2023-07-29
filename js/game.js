@@ -13,7 +13,7 @@ class Game {
             700-100,        //top
             42,            //width
             100,            //height
-            "/images/Koi-Droite.png")
+            "./../images/Koi-Droite.png")
     
         this.height = 700
         this.width = 500
