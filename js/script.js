@@ -9,13 +9,15 @@ window.onload = function () {
     const playScreen = document.getElementById("play-screen")
 
     const endScreen = document.getElementById("end-screen")
+    const quote = document.getElementById("quote")
     
     
     // Go to the game launcher screen 
       tryBtn.addEventListener("click", function () {    
       firstScreen.style.display = "none"
       logoDisplay.style.display = "none"
-      launchScreen.style.display = "block"           
+      launchScreen.style.display = "block"
+      changeTheQuote ()           
       })   
       
 
@@ -87,3 +89,29 @@ window.onload = function () {
       location.reload()
     })
     }
+
+    // function that change the footer quote each minute
+    function changeTheQuote(){
+     let myQuote = setInterval(function (){
+    const sentences = [
+      '"It always seems impossible until it is done."',
+      '"failure is not fatal: It is the courage to continue that counts."',
+      '"The only guarantee for failure is to stop trying."',
+      '"The man who moves a mountain begins by carrying away small stones."',
+      '"Success is the sum of small efforts, repeated day in and day out."',
+      '"It does not matter how slowly you go so long as you do not stop."',
+      '"Never confuse a single defeat with a final defeat."',
+      '"We will either find a way or make one."',
+      '"The best way out is always through."',
+      '"A winner is just a loser who tried one more time."'
+    ]     
+    
+    const oneSentence = sentences[Math.floor(Math.random() * 10)]
+    quote.innerHTML = oneSentence
+  }, 10000);
+
+  return myQuote
+  }
+
+
+
