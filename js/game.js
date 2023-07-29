@@ -5,6 +5,7 @@ class Game {
     this.gameScreen = document.getElementById("game-screen")
     this.playScreen = document.getElementById("play-screen")    
     this.endScreen = document.getElementById("end-screen")
+    this.playerImageChoice = myImage
 
     
         this.player = new Player(
@@ -13,7 +14,7 @@ class Game {
             700-100,        //top
             42,            //width
             100,            //height
-            ".././images/Koi-Droite.png")
+            this.playerImageChoice) //image
     
         this.height = 700
         this.width = 500

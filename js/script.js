@@ -4,12 +4,17 @@ window.onload = function () {
     const startBtn = document.getElementById("start-btn")
     const restartBtn = document.getElementById("restart-btn")
     const homeBtn = document.getElementById("home-btn")
+    const playerImmageBtn = document.getElementById("player-immage-btn")
+
   //html elements to display: on/off
     const firstScreen = document.getElementById("first-screen")
     const launchScreen = document.getElementById("launch-screen")
     const logoDisplay = document.getElementById("logo-big")
     const stats = document.getElementById("stats-container")
-    const playScreen = document.getElementById("play-screen")   
+    const playScreen = document.getElementById("play-screen")
+    
+  //image player by default  
+    
     
     
     // Go to the game launcher screen 
@@ -19,7 +24,13 @@ window.onload = function () {
       launchScreen.style.display = "block"
       stats.style.display = "block"
       changeTheQuote ()           
-      })   
+      })
+      
+    //select the player image
+    playerImmageBtn.addEventListener("click", function () {
+      let myImage = "../images/Koi-Fish-Player1.gif"      
+      startBtn.style.visibility = "visible"
+    })
       
 
      // Set the game board and Launch the game
@@ -29,6 +40,7 @@ window.onload = function () {
       startBtn.addEventListener("click", function () {
         playScreen.style.display = "block"
         launchScreen.style.display = "none"
+        /*const playerImageChoice = "../images/Koi-Fish-Player1.gif"*/
         launchGame()
       })
     
