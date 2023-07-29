@@ -13,12 +13,13 @@ class Game {
             700-100,        //top
             42,            //width
             100,            //height
-            "./../images/Koi-Droite.png")
+            ".././images/Koi-Droite.png")
     
         this.height = 700
         this.width = 500
         this.obstacles = []
-        this.score = 0 
+        this.score = 0
+        this.level = 0 
         this.lives = 3    
         this.gameIsOver = false
         }
@@ -31,6 +32,7 @@ class Game {
         this.gameScreen.style.width = `${this.width}px`
         this.endScreen.style.display = "none"
         document.getElementById("score").innerHTML = this.score
+        document.getElementById("level").innerHTML = this.level
         document.getElementById("lives").innerHTML = this.lives 
         this.gameLoop()
         }
