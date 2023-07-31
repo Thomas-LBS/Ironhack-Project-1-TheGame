@@ -1,11 +1,12 @@
 
 class Game {
-    constructor (){
+    constructor (playerImageSelection){
 
     this.gameScreen = document.getElementById("game-screen")
     this.playScreen = document.getElementById("play-screen")    
     this.endScreen = document.getElementById("end-screen")
-    this.playerImageChoice = myImage
+    this.playerImage = playerImageSelection
+   
 
     
         this.player = new Player(
@@ -14,7 +15,7 @@ class Game {
             700-100,        //top
             42,            //width
             100,            //height
-            this.playerImageChoice) //image
+            this.playerImage) //image
     
         this.height = 700
         this.width = 500

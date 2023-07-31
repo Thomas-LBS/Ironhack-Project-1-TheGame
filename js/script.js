@@ -27,8 +27,9 @@ window.onload = function () {
       })
       
     //select the player image
-    playerImmageBtn.addEventListener("click", function () {
-      let myImage = "../images/Koi-Fish-Player1.gif"      
+      let playerImageSelection = "../images/Koi-Fish-Player1.gif"
+      playerImmageBtn.addEventListener("click", function () {
+      let playerImageSelection = "../images/Koi-Fish-Player1.gif"  
       startBtn.style.visibility = "visible"
     })
       
@@ -38,14 +39,13 @@ window.onload = function () {
       let game
 
       startBtn.addEventListener("click", function () {
-        playScreen.style.display = "block"
         launchScreen.style.display = "none"
-        /*const playerImageChoice = "../images/Koi-Fish-Player1.gif"*/
+        playScreen.style.display = "block"
         launchGame()
       })
     
       function launchGame() {
-        game = new Game()
+        game = new Game(playerImageSelection)
         game.start()    
       }
     
@@ -107,6 +107,7 @@ window.onload = function () {
     
     //restart a new game
     restartBtn.addEventListener("click", function () {
+      game.endGame()
       launchGame()
     })
     
