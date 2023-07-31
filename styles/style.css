@@ -38,11 +38,15 @@ body {
   justify-content: space-between;
   }
 
-h1, h2, h3, h4 {
+h1, h2 {
   font-family: 'Titles', sans-serif;
-  font-size: 1.8em;
+  font-size: 2.5em;
   font-weight: lighter;
   margin: 0 0 0.5em;
+}
+
+h2 {
+  padding: 0 30px;
 }
 
 article, #score, #lives, #level {
@@ -82,6 +86,14 @@ span {
   display: none;
 }
 
+#win-infos{
+  display: none;
+}
+
+#loose-infos{
+  display: none;
+}
+
 
 /* Button settings */
 
@@ -93,7 +105,7 @@ button {
   cursor: pointer;
   }
 
-#home-btn, #restart-btn {
+.home-btn, .restart-btn  {
   width: 245px;
 }
 
@@ -206,6 +218,7 @@ article {
 
 #stats-container{
 display: none;
+padding: 0 1em;
 }
 
 #stats {
@@ -222,7 +235,7 @@ display: none;
   background-image: url(../images/river-bg.png);
   background-size: cover;
   animation: slide linear infinite;
-  animation-duration: 10s;
+  animation-duration: 15s;
   margin: auto;
   width: 500px;
   height: 700px;
@@ -238,7 +251,7 @@ display: none;
   background-image: url(../images/river-bg.png);
   background-size: cover;
   animation: slide linear infinite;
-  animation-duration: 10s;
+  animation-duration: 20s;
   width: 500px;
   height: 700px;
   margin: auto;
@@ -274,13 +287,7 @@ display: none;
   .logo, article {
     width: 55%;
   }
-  
-
- 
-  h1, h2, h3, h4 {
-    font-size: 2em;
-    }
-  
+    
   article {
     font-size: 1.1em;
     }
@@ -299,10 +306,6 @@ display: none;
     width: 50%;
   } 
 
-  h1, h2, h3, h4 {
-    font-size: 2.2em;
-    }
-  
   article {
     font-size: 1.2em;
     }
@@ -326,10 +329,6 @@ display: none;
     width: 50%;
     max-width: 1500px;
   }
-
-  h1, h2, h3, h4 {
-    font-size: 2.4em;
-    }
   
   article {
     font-size: 1.3em;

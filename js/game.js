@@ -2,9 +2,11 @@
 class Game {
     constructor (playerImageSelection){
 
-    this.gameScreen = document.getElementById("game-screen")
-    this.playScreen = document.getElementById("play-screen")    
+    this.playScreen = document.getElementById("play-screen")     
+    this.gameScreen = document.getElementById("game-screen")       
     this.endScreen = document.getElementById("end-screen")
+    this.looseScreen = document.getElementById("loose-infos")
+    this.winScreen = document.getElementById("win-infos")
     this.playerImage = playerImageSelection
    
 
@@ -21,8 +23,8 @@ class Game {
         this.width = 500
         this.obstacles = []
         this.score = 0
-        this.level = 0 
-        this.lives = 3    
+        this.level = 1 
+        this.lives = 3   
         this.gameIsOver = false
         }
         
@@ -41,10 +43,12 @@ class Game {
 
 // Game Loop
 gameLoop(){
-    
+
+    //losing ending
     if(this.gameIsOver){
         return
     }
+
     this.update()
     window.requestAnimationFrame(() => this.gameLoop())    
 }
@@ -52,20 +56,43 @@ gameLoop(){
 // Game Update
 update(){
     this.player.move()
+
+
+
+// create the ending condition 
+    if (this.lives === 0) {
+    this.endGame("loose")
     }
+
+// create a winning condition
+    else if (this.level === 101) {
+    this.endGame("win")
+    }
+}
 
 
 
 // Create a new method responsible for ending the game
-endGame() {
-  this.player.element.remove();
-  this.obstacles.forEach(obstacle => obstacle.element.remove());
+endGame(status) {
+  this.player.element.remove()
+  this.obstacles.forEach(obstacle => obstacle.element.remove())
+  this.gameIsOver = true
 
-  this.gameIsOver = true;
+  // display the endscreen
+  this.playScreen.style.display = "none"
+  this.endScreen.style.display = "block"
+  
 
-  // Hide game screen
-  this.gameScreen.style.display = "none";
-  // Show end game screen
-  this.endScreen.style.display = "block";
+
+ // display the information depending on the endGameStatus  
+  if (status === "loose"){
+    this.looseScreen.style.display = "block"
+  }
+
+  if (status === "win"){
+    this.winScreen.style.display = "block"
+  }
+
+
 }
 }

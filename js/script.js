@@ -4,6 +4,8 @@ window.onload = function () {
     const startBtn = document.getElementById("start-btn")
     const restartBtn = document.getElementById("restart-btn")
     const homeBtn = document.getElementById("home-btn")
+    const restartBtn2 = document.getElementById("restart-btn2")
+    const homeBtn2 = document.getElementById("home-btn2")
     const playerImmageBtn = document.getElementById("player-immage-btn")
 
   //html elements to display: on/off
@@ -27,9 +29,10 @@ window.onload = function () {
       })
       
     //select the player image
-      let playerImageSelection = "../images/Koi-Fish-Player1.gif"
+      let playerImageSelection
+
       playerImmageBtn.addEventListener("click", function () {
-      let playerImageSelection = "../images/Koi-Fish-Player1.gif"  
+      playerImageSelection = "../images/Koi-Fish-Player1.gif"  
       startBtn.style.visibility = "visible"
     })
       
@@ -107,7 +110,9 @@ window.onload = function () {
     
     //restart a new game
     restartBtn.addEventListener("click", function () {
-      game.endGame()
+      launchGame()
+    })
+    restartBtn2.addEventListener("click", function () {
       launchGame()
     })
     
@@ -115,6 +120,10 @@ window.onload = function () {
     homeBtn.addEventListener("click", function () {
       location.reload()
     })
+    homeBtn2.addEventListener("click", function () {
+      location.reload()
+    })
+
     }
 
     // function that change the footer quote each minute
@@ -137,7 +146,7 @@ window.onload = function () {
     
       const oneSentence = sentences[Math.floor(Math.random() * 10)]
       quote.innerHTML = oneSentence
-      }, 10000);
+      }, 10000)
 
     return myQuote
     }

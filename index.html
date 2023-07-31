@@ -62,10 +62,10 @@
       
 
     <!-- Launch screen with explanation of the game and keys -->
-        <section id="launch-screen" >
+        <section id="launch-screen">
             <div class="center river-bg">
                 <article id="game-instructions">
-                    <h1>Are you ready to go up the current ?</h1>
+                    <h2>Are you ready to go up the current ?</h2>
                     <br>
                     Control the Koï fish with<br> the keyboard arrows !<br><br>
                     <img id="arrows" src="./images/Arrows.png" alt="Keyboard Arrows picture">
@@ -84,17 +84,34 @@
                
             </div>
             <div class="center">
-                <button id="restart-btn" class="button2">RESTART</button>
-                <button id="home-btn" class="button2">HOME</button>
+                <button id="restart-btn" class="restart-btn button2">RESTART</button>
+                <button id="home-btn" class="home-btn button2">HOME</button>
             </div>
         </section>
 
     <!-- End of the game, win or loose, restart or go back home -->
         <section id="end-screen">
             <div class="center river-bg">
-                <button id="restart-btn" class="button2">RESTART</button>
-                <button id="home-btn" class="button2">HOME</button>
+                <article id = win-infos>
+                    <h2>CONGRATULATIONS !</h2>
+                    The gods recognize your courage<br>
+                    and your perseverance.
+                    <br><br>
+                    As a reward you become a dragon !                    
+                </article>
+                <article id = loose-infos>
+                    <h2>YOU LOOSE !</h2>
+                    The gods laugh<br>
+                    and get tired of this sad spectacle.
+                    <br><br>
+                    As a punishment they sell you to a restaurant ! 
+                </article>
             </div>
+            <div class="center">
+                <button id="restart-btn2" class="restart-btn button2">RESTART</button>
+                <button id="home-btn2" class="home-btn button2">HOME</button>
+            </div>
+            
         </section>
     </main>
 
