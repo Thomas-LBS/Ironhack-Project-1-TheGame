@@ -61,7 +61,6 @@ River Blue and Shadow : #14BDEB, #3083DC
 <b>end-screen</b> is the win or loose page with the restart-btn and home-btn.
 
 ## script.js
-
 this file contain the windows onload, the buttons click actions, the handleKeydown functions and launch the Game class.
 
 ## game.js
@@ -71,7 +70,6 @@ this file contain the creation of the board game and the logic of the game
 this file contain the class Player
 
 ## ennemies.js
-
 this file contain the class Ennemies
 
 

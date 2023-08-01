@@ -46,7 +46,7 @@ h1, h2 {
 }
 
 h2 {
-  padding: 0 30px;
+  margin: 0 30px;
 }
 
 article, #score, #lives, #level {
@@ -213,7 +213,7 @@ header, main, footer, section, article, .logo {
 }
 
 article, .end-game-img {
-  min-width: 400px;
+  min-width: 450px;
   width: 60%;
 }
 

@@ -18,35 +18,38 @@ class Player {
         this.element.style.top = `${top}px`
     
         this.gameScreen.appendChild(this.element)
-      }
+    }
 
-      move(){
+    move(){
         this.left += this.directionX
         this.top += this.directionY
-        //left limit
+
+        // left limit
         if (this.left < 30) {
             this.left = 30
-            }
-        //top limit
+        }
+
+        // top limit
         if (this.top < 5) {
             this.top = 5
-            }
-        //right limit
+        }
+
+        // right limit
         if (this.left > this.gameScreen.offsetWidth - this.width - 30) {
             this.left = this.gameScreen.offsetWidth - this.width - 30
-            }
-        //bottom
+        }
+
+        // bottom
         if (this.top > this.gameScreen.offsetHeight - this.height - 5) {
             this.top = this.gameScreen.offsetHeight - this.height - 5
-            }
+        }
 
         this.updatePosition()
-      }
-
-      updatePosition(){
-        this.element.style.left = `${this.left}px`
-        this.element.style.top = `${this.top}px`
     }
 
 
+    updatePosition(){
+        this.element.style.left = `${this.left}px`
+        this.element.style.top = `${this.top}px`
+    }
 }
