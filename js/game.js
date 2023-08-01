@@ -21,8 +21,8 @@ class Game {
         this.width = 500
         this.obstacles = []
         this.score = 0
-        this.level = 0
-        this.lives = 3   
+        this.level = 100
+        this.lives = 3  
         this.gameIsOver = false
     }
         
@@ -44,12 +44,13 @@ class Game {
                 document.getElementById("level").innerHTML = this.level
             }
             
-            if (this.level < 50){
+            else if (this.level < 100){
                     this.level += 1
                     document.getElementById("level").innerHTML = this.level
             }
-            },5000)
+        },1000)
         
+        //launch the loop
         this.gameLoop()
         
         

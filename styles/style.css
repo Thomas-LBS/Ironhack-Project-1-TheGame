@@ -33,6 +33,7 @@ body {
 
 #page-container {
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,13 +41,17 @@ body {
 
 h1, h2 {
   font-family: 'Titles', sans-serif;
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: lighter;
   margin: 0 0 0.5em;
 }
 
 h2 {
-  margin: 0 30px;
+  margin: 30px 30px;
+}
+
+p {
+  margin: 0 0 9px;
 }
 
 article, #score, #lives, #level {
@@ -56,7 +61,7 @@ article, #score, #lives, #level {
 
 span {
   font-family: 'Rikyu', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 .center {
@@ -100,7 +105,7 @@ span {
 button {
   font-family: 'General';
   text-align: center;
-  margin: 20px 0;
+  margin-top: 20px;
   width: 350px;
   cursor: pointer;
   }
@@ -199,12 +204,17 @@ button {
 
 .logo {
   display: block;
-  width: 60%;
-  min-width: 500px;
+  width: 500px;
+}
+
+#legend{
+  min-width: 450px;
+  max-width: 1300px;
 }
 
 #arrows {
-  width: 50%;
+  width: 40%;
+  padding-bottom: 50px;
 }
 
 header, main, footer, section, article, .logo {
@@ -212,9 +222,14 @@ header, main, footer, section, article, .logo {
  margin-right: auto;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 article, .end-game-img {
-  min-width: 450px;
-  width: 60%;
+  width: 80%;
 }
 
 #stats-container{
@@ -285,14 +300,6 @@ padding: 0 1em;
 /* small screen ---------------------------------------------------*/
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .logo, article {
-    width: 55%;
-  }
-    
-  article {
-    font-size: 1.1em;
-    }
-  
   span {
     font-size: 1.6em;
   }
@@ -303,14 +310,6 @@ padding: 0 1em;
 /* medium screen ---------------------------------------------------*/
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .logo, article {
-    width: 50%;
-  } 
-
-  article {
-    font-size: 1.2em;
-    }
-  
   span {
     font-size: 1.8em;
   }
@@ -321,20 +320,6 @@ padding: 0 1em;
 /*large screen ---------------------------------------------------*/
 
 @media (min-width: 1441px) {
-  .logo {
-    width: 50%;
-    max-width: 1500px;
-  }
-  
-  article {
-    width: 50%;
-    max-width: 1500px;
-  }
-  
-  article {
-    font-size: 1.3em;
-    }
-  
   span {
     font-size: 2em;
   }

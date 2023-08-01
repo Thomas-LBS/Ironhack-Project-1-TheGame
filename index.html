@@ -63,18 +63,21 @@
 
         <!-- Launch screen with explanation of the game and keys -->
         <section id="launch-screen">
-            <div class="center river-bg">
+            <div class="center river-bg flex">
+                <h2>Are you ready to go up the current?</h2>
                 <article id="game-instructions">
-                    <br><br>
-                    <h2>Are you ready to go up the current?</h2>
-                    <br>
                     Control the Koï fish with<br> the keyboard arrows !<br><br>
                     <img id="arrows" src="./images/Arrows.png" alt="Keyboard Arrows picture">
-                    <br><br>Select your player :<br>
                 </article>
-                <button id="player-immage-btn1"><img class="player-immage" src="./images/Koi-Fish-Player1.png" alt=""></button>
-                <button id="player-immage-btn2"><img class="player-immage" src="./images/Koi-Fish-Player2.png" alt=""></button>
-                <button id="player-immage-btn3"><img class="player-immage" src="./images/Koi-Fish-Player3.png" alt=""></button>
+                <div>
+                    <article>
+                        Select your player:
+                        <br><br>
+                    </article>
+                    <button id="player-immage-btn1"><img class="player-immage" src="./images/Koi-Fish-Player1.png" alt=""></button>
+                    <button id="player-immage-btn2"><img class="player-immage" src="./images/Koi-Fish-Player2.png" alt=""></button>
+                    <button id="player-immage-btn3"><img class="player-immage" src="./images/Koi-Fish-Player3.png" alt=""></button>
+                </div>            
             </div>
             <div class="center">
                 <button id="start-btn" class="button2">START</button>
@@ -95,23 +98,29 @@
         <!-- End of the game, win or loose, restart or go back home -->
         <section id="end-screen">
             <div class="center river-bg">
-                <article id ="win-infos">
+                <article id="win-infos">
                     <br><br>
                     <h2>CONGRATULATIONS!</h2>
+                    <br><br>
                     The gods recognize your courage<br>
                     and your perseverance.
                     <br><br>
-                    As a reward you become a dragon !
+                    <br><br>
+                    As a reward they turn you into a dragon!
+                    <br><br>
                     <br><br>
                     <img class="end-game-img" src="./images/Dragon.png" alt="an image with an amazing dragon">                    
                 </article>
-                <article id ="loose-infos">
+                <article id="loose-infos">
                     <br><br>
                     <h2>YOU LOOSE!</h2>
-                    The gods laugh<br>
+                    <br><br>
+                    The gods laugh...<br>
                     and get tired of this sad spectacle.
                     <br><br>
-                    As a punishment they sell you to a restaurant !
+                    <br><br>
+                    As a punishment they sell you to a restaurant!
+                    <br><br>
                     <br><br>
                     <img class="end-game-img" src="./images/Sushis.png" alt="an image with sushis on a plate"> 
                 </article>
