@@ -2,7 +2,7 @@
 class Game {
     constructor (playerImageSelection){
 
-    this.playScreen = document.getElementById("play-screen")     
+    this.playScreen = document.getElementById("play-screen")    
     this.gameScreen = document.getElementById("game-screen")       
     this.endScreen = document.getElementById("end-screen")
     this.looseScreen = document.getElementById("loose-infos")
@@ -10,7 +10,7 @@ class Game {
     this.playerImage = playerImageSelection
    
 
-    
+    // create a new player
         this.player = new Player(
             this.gameScreen,
             (500-42)/2,    //left
@@ -23,7 +23,7 @@ class Game {
         this.width = 500
         this.obstacles = []
         this.score = 0
-        this.level = 1 
+        this.level = 1
         this.lives = 3   
         this.gameIsOver = false
         }
@@ -31,6 +31,7 @@ class Game {
 
 // Game Start
     start(){
+        this.playScreen.style.display = "block"
         this.gameScreen.style.display = "block"
         this.gameScreen.style.height = `${this.height}px`
         this.gameScreen.style.width = `${this.width}px`
@@ -72,14 +73,14 @@ update(){
 
 
 
-// Create a new method responsible for ending the game
+// create the end game conditions
 endGame(status) {
   this.player.element.remove()
   this.obstacles.forEach(obstacle => obstacle.element.remove())
   this.gameIsOver = true
 
   // display the endscreen
-  this.playScreen.style.display = "none"
+  this.gameScreen.style.display = "none"
   this.endScreen.style.display = "block"
   
 
@@ -87,10 +88,14 @@ endGame(status) {
  // display the information depending on the endGameStatus  
   if (status === "loose"){
     this.looseScreen.style.display = "block"
+    this.winScreen.style.display = "none"
+    this.playScreen.style.display = "none"
   }
 
   if (status === "win"){
     this.winScreen.style.display = "block"
+    this.looseScreen.style.display = "none"
+    this.playScreen.style.display = "none"
   }
 
 

@@ -109,16 +109,17 @@ button {
   width: 245px;
 }
 
-#player-immage-btn {
+#player-immage-btn1, #player-immage-btn2, #player-immage-btn3 {
   background: none;
   padding: 0;
-  width: 50px;
+  margin: 15px 10px;
+  width: 77px;
   height: 110px;
   border: 1px outset #3083DC;  
 }
 
 .player-immage {
-  width: 42px;
+  width: 70px;
   height: 100px;
 }
 
@@ -211,7 +212,7 @@ header, main, footer, section, article, .logo {
  margin-right: auto;
 }
 
-article {
+article, .end-game-img {
   min-width: 400px;
   width: 60%;
 }

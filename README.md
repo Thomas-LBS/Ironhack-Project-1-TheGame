@@ -48,7 +48,7 @@ Bacground analogous color medium, left, right: #F0EAD9 , #DAF0D9, #F0CED9
 Texte Color : #383734
 Texte decoration : #beb9ac, #8e8b82, #615f59
 
-Accentuation dark, clear: #de425b, #
+Accentuation dark, clear: #de425b, #f09fa2, #F0DED9
 
 River Blue and Shadow : #14BDEB, #3083DC
 

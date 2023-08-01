@@ -6,14 +6,16 @@ window.onload = function () {
     const homeBtn = document.getElementById("home-btn")
     const restartBtn2 = document.getElementById("restart-btn2")
     const homeBtn2 = document.getElementById("home-btn2")
-    const playerImmageBtn = document.getElementById("player-immage-btn")
+    const playerImmageBtn1 = document.getElementById("player-immage-btn1")
+    const playerImmageBtn2 = document.getElementById("player-immage-btn2")
+    const playerImmageBtn3 = document.getElementById("player-immage-btn3")
 
   //html elements to display: on/off
     const firstScreen = document.getElementById("first-screen")
     const launchScreen = document.getElementById("launch-screen")
     const logoDisplay = document.getElementById("logo-big")
     const stats = document.getElementById("stats-container")
-    const playScreen = document.getElementById("play-screen")
+    const endScreen = document.getElementById("end-screen")
     
   //image player by default  
     
@@ -31,8 +33,18 @@ window.onload = function () {
     //select the player image
       let playerImageSelection
 
-      playerImmageBtn.addEventListener("click", function () {
+      playerImmageBtn1.addEventListener("click", function () {
       playerImageSelection = "../images/Koi-Fish-Player1.gif"  
+      startBtn.style.visibility = "visible"
+    })
+
+    playerImmageBtn2.addEventListener("click", function () {
+      playerImageSelection = "../images/Koi-Fish-Player2.gif"  
+      startBtn.style.visibility = "visible"
+    })
+
+    playerImmageBtn3.addEventListener("click", function () {
+      playerImageSelection = "../images/Koi-Fish-Player3.gif"  
       startBtn.style.visibility = "visible"
     })
       
@@ -43,7 +55,7 @@ window.onload = function () {
 
       startBtn.addEventListener("click", function () {
         launchScreen.style.display = "none"
-        playScreen.style.display = "block"
+        endScreen.style.display = "non"
         launchGame()
       })
     
@@ -110,9 +122,11 @@ window.onload = function () {
     
     //restart a new game
     restartBtn.addEventListener("click", function () {
+      game.endGame()
       launchGame()
     })
     restartBtn2.addEventListener("click", function () {
+      game.endGame()
       launchGame()
     })
     
