@@ -23,7 +23,7 @@ class Game {
         this.width = 500
         this.obstacles = []
         this.score = 0
-        this.level = 1
+        this.level = 101
         this.lives = 3   
         this.gameIsOver = false
         }

@@ -34,17 +34,17 @@ window.onload = function () {
       let playerImageSelection
 
       playerImmageBtn1.addEventListener("click", function () {
-      playerImageSelection = "../images/Koi-Fish-Player1.gif"  
+      playerImageSelection = "./../images/Koi-Fish-Player1.gif"  
       startBtn.style.visibility = "visible"
     })
 
     playerImmageBtn2.addEventListener("click", function () {
-      playerImageSelection = "../images/Koi-Fish-Player2.gif"  
+      playerImageSelection = "./images/Koi-Fish-Player2.gif"  
       startBtn.style.visibility = "visible"
     })
 
     playerImmageBtn3.addEventListener("click", function () {
-      playerImageSelection = "../images/Koi-Fish-Player3.gif"  
+      playerImageSelection = ".././images/Koi-Fish-Player3.gif"  
       startBtn.style.visibility = "visible"
     })
       
