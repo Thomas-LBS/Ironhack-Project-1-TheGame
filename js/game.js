@@ -7,6 +7,9 @@ class Game {
         this.looseScreen = document.getElementById("loose-infos")
         this.winScreen = document.getElementById("win-infos")
         this.playerImage = playerImageSelection
+        this.gameScreenSpeed = document.getElementById("game-screen")
+        this.speedAnimation = ["30s", "28s", "26s", "24s", "22s", "20s", "16s", "12s", "8s", "4s", "1s"]
+        
    
     // create a new player
         this.player = new Player(
@@ -21,7 +24,7 @@ class Game {
         this.width = 500
         this.obstacles = []
         this.score = 0
-        this.level = 100
+        this.level = 0
         this.lives = 3  
         this.gameIsOver = false
     }
@@ -37,19 +40,9 @@ class Game {
         document.getElementById("score").innerHTML = this.score
         document.getElementById("lives").innerHTML = this.lives 
         
-        // increasing the level every 5sec
-        setInterval(() => {
-            if (this.level < 50){
-                this.level += 1
-                document.getElementById("level").innerHTML = this.level
-            }
-            
-            else if (this.level < 100){
-                    this.level += 1
-                    document.getElementById("level").innerHTML = this.level
-            }
-        },1000)
-        
+        // raise the level every X sec
+        this.increaseTheLevel()
+                
         //launch the loop
         this.gameLoop()
         
@@ -84,7 +77,18 @@ class Game {
     }
 
 
-    // how the levels increase to 100
+    // how the levels increase to 100 and raise the difficulty
+    increaseTheLevel(params) {        
+        setInterval(() => {
+            if (this.level < 100){
+                this.level += 1
+                document.getElementById("level").innerHTML = this.level
+
+                //raise the speed of the screen
+                this.gameScreenSpeed.style.animationDuration = this.speedAnimation[this.level/10]
+            }
+        },1000)    
+    }
    
 
     // create the end game conditions

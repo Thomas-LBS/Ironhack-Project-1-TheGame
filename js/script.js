@@ -88,7 +88,7 @@ window.onload = function () {
         case "A":
         case "q":
         case "Q":
-        game.player.directionX += -1;
+        game.player.directionX += -speedDirection;
         break;
 
         case "ArrowUp":
@@ -96,23 +96,27 @@ window.onload = function () {
         case "W":
         case "z":
         case "Z":
-        game.player.directionY += -1;
+        game.player.directionY += -speedDirection;
         break;
 
         case "ArrowRight":
         case "d":
         case "D":
-        game.player.directionX += 1;
+        game.player.directionX += speedDirection;
         break;
 
         case "ArrowDown":
         case "s":
         case "S":
-        game.player.directionY += 1;
+        game.player.directionY += speedDirection;
         break;
       }
     }
   }
+
+  // increase the speed of the Player
+  let speedDirection = Math.floor(1 + game.level / 10)
+  
     
   // Add the handleKeydown function as an event listener for the keydown event
   window.addEventListener("keydown", handleKeydown)
