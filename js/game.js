@@ -9,16 +9,33 @@ class Game {
         this.playerImage = playerImageSelection
         this.gameScreenSpeed = document.getElementById("game-screen")
         this.speedAnimation = ["30s", "28s", "26s", "24s", "22s", "20s", "16s", "12s", "8s", "4s", "1s"]
-        
+                
    
     // create a new player
         this.player = new Player(
             this.gameScreen,
-            (500-42)/2,    //left
-            700-100,        //top
-            42,            //width
-            100,            //height
-            this.playerImage) //image
+            (500-42)/2,         //left
+            700-100,            //top
+            42,                 //width
+            100,                //height
+            this.playerImage)   //image
+
+    // create a new ennemy
+        this.ennemy = new Ennemy(
+            this.gameScreen,
+            (500-100)/2,        //left
+            0,               //top
+            75,                //width
+            75,                //height
+            "./images/Rock-1.png") //image
+        
+        this.ennemy2 = new Ennemy(
+            this.gameScreen,
+            (500-200)/2,        //left
+            0,               //top
+            55,                //width
+            125,                //height
+            "./images/Rock-2.png") //image
 
         this.height = 700
         this.width = 500
@@ -42,11 +59,9 @@ class Game {
         
         // raise the level every X sec
         this.increaseTheLevel()
-                
+                      
         //launch the loop
         this.gameLoop()
-        
-        
     }
 
     // Game Loop

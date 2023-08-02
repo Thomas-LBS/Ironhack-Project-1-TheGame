@@ -53,6 +53,7 @@ window.onload = function () {
   startBtn.addEventListener("click", function () {
     launchScreen.style.display = "none"
     endScreen.style.display = "non"
+    increaseSpeedDirection ()
     launchGame()
   })
 
@@ -88,7 +89,7 @@ window.onload = function () {
         case "A":
         case "q":
         case "Q":
-        game.player.directionX += -speedDirection;
+        game.player.directionX = -speedDirection;
         break;
 
         case "ArrowUp":
@@ -96,30 +97,89 @@ window.onload = function () {
         case "W":
         case "z":
         case "Z":
-        game.player.directionY += -speedDirection;
+        game.player.directionY = -speedDirection;
         break;
 
         case "ArrowRight":
         case "d":
         case "D":
-        game.player.directionX += speedDirection;
+        game.player.directionX = speedDirection;
         break;
 
         case "ArrowDown":
         case "s":
         case "S":
-        game.player.directionY += speedDirection;
+        game.player.directionY = speedDirection;
+        break;
+      }
+    }
+  }
+
+  // Function that handles keyup event for AZERTY & QWERTY & ARROWS
+  function handleKeyUp(event) {
+    const key = event.key;
+    const possibleKeystrokes = [
+      "ArrowLeft",
+      "a", "A",
+      "q", "Q",
+      "ArrowUp",
+      "w", "W",
+      "z", "Z",
+      "ArrowRight",
+      "d", "D",
+      "ArrowDown",
+      "s", "S",
+    ]
+    
+    // Check if the pressed key is in the possibleKeystrokes array
+    if (possibleKeystrokes.includes(key)) {
+    event.preventDefault();
+    
+    // Update player's directionX and directionY based on the key pressed
+      switch (key) {
+        case "ArrowLeft":
+        case "a":
+        case "A":
+        case "q":
+        case "Q":
+        game.player.directionX = 0;
+        break;
+
+        case "ArrowUp":
+        case "w":
+        case "W":
+        case "z":
+        case "Z":
+        game.player.directionY = 0;
+        break;
+
+        case "ArrowRight":
+        case "d":
+        case "D":
+        game.player.directionX = 0;
+        break;
+
+        case "ArrowDown":
+        case "s":
+        case "S":
+        game.player.directionY = 0;
         break;
       }
     }
   }
 
   // increase the speed of the Player
-  let speedDirection = Math.floor(1 + game.level / 10)
+  let speedDirection = 1
   
-    
+  function increaseSpeedDirection () {
+    setInterval(()=>{
+      speedDirection = Math.floor(1 + game.level / 10)  
+    },1000)
+  }
+      
   // Add the handleKeydown function as an event listener for the keydown event
   window.addEventListener("keydown", handleKeydown)
+  window.addEventListener("keyup", handleKeyUp)
 
   // restart a new game
   restartBtn.addEventListener("click", function () {
@@ -139,32 +199,33 @@ window.onload = function () {
     location.reload()
   })
 
+  // function that change the footer quote each minute
+  function changeTheQuote(){
+    const quote = document.getElementById("quote")
+
+    let myQuote = setInterval(() => {
+    const sentences = [
+      '"It always seems impossible until it is done."',
+      '"failure is not fatal: It is the courage to continue that counts."',
+      '"The only guarantee for failure is to stop trying."',
+      '"The man who moves a mountain begins by carrying away small stones."',
+      '"Success is the sum of small efforts, repeated day in and day out."',
+      '"It does not matter how slowly you go so long as you do not stop."',
+      '"Never confuse a single defeat with a final defeat."',
+      '"We will either find a way or make one."',
+      '"The best way out is always through."',
+      '"A winner is just a loser who tried one more time."'
+    ]     
+
+    const oneSentence = sentences[Math.floor(Math.random() * 10)]
+    quote.innerHTML = oneSentence
+    }, 10000)
+
+    return myQuote
+  }  
 }
 
-// function that change the footer quote each minute
-function changeTheQuote(){
-  const quote = document.getElementById("quote")
 
-  let myQuote = setInterval(() => {
-  const sentences = [
-    '"It always seems impossible until it is done."',
-    '"failure is not fatal: It is the courage to continue that counts."',
-    '"The only guarantee for failure is to stop trying."',
-    '"The man who moves a mountain begins by carrying away small stones."',
-    '"Success is the sum of small efforts, repeated day in and day out."',
-    '"It does not matter how slowly you go so long as you do not stop."',
-    '"Never confuse a single defeat with a final defeat."',
-    '"We will either find a way or make one."',
-    '"The best way out is always through."',
-    '"A winner is just a loser who tried one more time."'
-  ]     
-
-  const oneSentence = sentences[Math.floor(Math.random() * 10)]
-  quote.innerHTML = oneSentence
-  }, 10000)
-
-  return myQuote
-}
 
 
 
