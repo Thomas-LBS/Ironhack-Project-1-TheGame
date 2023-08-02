@@ -169,12 +169,11 @@ window.onload = function () {
   }
 
   // increase the speed of the Player
-  let speedDirection = 1
-  
+  let speedDirection = 1   
   function increaseSpeedDirection () {
     setInterval(()=>{
       speedDirection = Math.floor(1 + game.level / 10)  
-    },1000)
+    },500)
   }
       
   // Add the handleKeydown function as an event listener for the keydown event
