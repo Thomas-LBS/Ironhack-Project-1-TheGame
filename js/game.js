@@ -10,7 +10,10 @@ class Game {
         this.gameScreenSpeed = document.getElementById("game-screen")
         this.gameScreenSpeed.style.animationDuration = "30s"
         this.speedAnimation = ["30s", "27s", "24s", "21s", "18s", "15s", "11s", "7s", "3s", "1s"]
-               
+        this.ambianceSound = new Audio("./sounds/Peritune-Sakuya2.mp3")
+        this.winSound = new Audio("./sounds/success-fanfare-trumpets.mp3")
+        this.looseSound = new Audio("./sounds/knife-stab.mp3")
+        this.collideSound = new Audio("/sounds/huge-slap.mp3")       
    
     // create a new player
         this.player = new Player(
@@ -46,7 +49,7 @@ class Game {
 //array needed ?
         this.ennemies = []
         this.score = 0
-        this.level = 0
+        this.level = 90
         this.lives = 3  
         this.gameIsOver = false
     }
@@ -74,18 +77,28 @@ class Game {
     gameLoop(){
         //ending the loop
         if(this.gameIsOver){
+            this.ambianceSound.pause()
+            // ending sounds
+            if (this.lives === 0){
+                this.looseSound.play()
+            }
+            if (this.level === 100){
+                this.winSound.play()
+            }
             return
         }
+
         // Continue the loop
+        this.ambianceSound.play()
         this.update()
         window.requestAnimationFrame(() => this.gameLoop())    
     }
 
     // Game Update
     update(){
+
         this.player.move()
-                
-        
+               
         // create the ending condition 
         if (this.lives === 0) {
             this.endGame("loose")
@@ -101,22 +114,28 @@ class Game {
             ennemy.move();
         
             // collision logic
-            if (this.player.didCollide(ennemy)) {
-                ennemy.element.remove();
-                // Remove ennemy object from the array
-                this.ennemies.splice(i, 1);
-                // Reduce player's lives by 1
-                this.lives-- ;
+            if (this.player.didCollide(ennemy)) {          
+                
+                //sound animation
+                this.collideSound.play()
+
+                // remove the ennemy
+                ennemy.element.remove()
+                this.ennemies.splice(i, 1)
+                
+                // actualise lives and i
+                this.lives--
                 document.getElementById("lives").innerHTML = this.lives
-                // Update the counter variable to account for the removed ennemy
-                i--;    
+                i--
             }
 
             // score logic
             else if (ennemy.top > this.height) {
-                
+            
                 this.score++ 
                 document.getElementById("score").innerHTML = this.score
+
+                //remove the ennemy
                 ennemy.element.remove()
                 this.ennemies.splice(i, 1)
                 i--
@@ -125,8 +144,9 @@ class Game {
 
         //create new Ennemy randomly
         if (Math.random() > 0.98 && this.ennemies.length < 3) {
-            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 341), 1, 100, 100, "./images/Rock-1.png"))
-        } 
+            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 341), (1-100), 100, 100, "./images/Rock-1.png"))
+        }
+        
     }
 
 
@@ -144,8 +164,7 @@ class Game {
                 this.gameScreenSpeed.style.animationDuration = this.speedAnimation[Math.floor(this.level/10)]
             }
         }, 1000)
-    }
-   
+    }   
 
     // create the end game conditions
     endGame(status) {

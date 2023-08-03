@@ -172,14 +172,14 @@ window.onload = function () {
   let speedDirection = 1   
   function increaseSpeedDirection () {
       const intervalId = setInterval(() => {
-      if (this.gameIsOver) {
+      if (game.gameIsOver) {
         clearInterval(intervalId)
       }
 
       else {
         speedDirection = Math.floor(1 + game.level / 10)
       }
-    },500)
+    },1000)
   }
       
   // Add the handleKeydown function as an event listener for the keydown event
@@ -227,7 +227,8 @@ window.onload = function () {
     }, 10000)
 
     return myQuote
-  }  
+  }
+
 }
 
 
