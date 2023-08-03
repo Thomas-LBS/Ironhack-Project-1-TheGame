@@ -19,7 +19,7 @@ class Game {
         this.loseSound = new Audio("./sounds/knife-stab.mp3")
         this.collideSound = new Audio("./sounds/huge-slap.mp3")       
    
-
+        
     // create a new player
         this.player = new Player(
             this.gameScreen,
@@ -34,7 +34,7 @@ class Game {
         this.width = 500
         this.ennemies = []
         this.score = 0
-        this.level = 50
+        this.level = 0
         this.lives = 3  
         this.gameIsOver = false
     }
@@ -143,11 +143,11 @@ class Game {
 
     //create ennemies
     createEnnemies(){
-        let ennemiesNumeber = 3
-        if (this.level > 25){ennemiesNumeber = 4}
-        if (this.level > 50){ennemiesNumeber = 5}
-        if (this.level > 70){ennemiesNumeber = 6}
-        if (this.level > 90){ennemiesNumeber = 8}
+        let ennemiesNumeber = 2
+        if (this.level > 25){ennemiesNumeber = 3}
+        if (this.level > 50){ennemiesNumeber = 4}
+        if (this.level > 70){ennemiesNumeber = 5}
+        if (this.level > 90){ennemiesNumeber = 7}
         
 
         if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
