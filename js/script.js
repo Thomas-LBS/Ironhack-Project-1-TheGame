@@ -53,12 +53,12 @@ window.onload = function () {
   startBtn.addEventListener("click", function () {
     launchScreen.style.display = "none"
     endScreen.style.display = "non"
-    increaseSpeedDirection ()
     launchGame()
   })
 
   function launchGame() {
     game = new Game(playerImageSelection)
+    increaseSpeedDirection ()
     game.start()    
   }
     
@@ -171,8 +171,14 @@ window.onload = function () {
   // increase the speed of the Player
   let speedDirection = 1   
   function increaseSpeedDirection () {
-    setInterval(()=>{
-      speedDirection = Math.floor(1 + game.level / 10)  
+      const intervalId = setInterval(() => {
+      if (game.level > 100) {
+        clearInterval(intervalId)
+      }
+
+      else {
+        speedDirection = Math.floor(1 + game.level / 10)
+      }
     },500)
   }
       

@@ -22,26 +22,18 @@ class Game {
             this.playerImage)   //image
 
     
-    // create an ennemy
-        this.ennemy = new Ennemy(
-            this.gameScreen,
-            (500-100)/2,
-             5,
-             100,
-             100,
-             "./images/Rock-1.png")
-        
     // create a 2nd ennemy        
-        this.ennemy2 = new Ennemy(
+        /*this.ennemy2 = new Ennemy(
             this.gameScreen,
             (500-200)/2,            //left
             5,                      //top
             55,                     //width
             125,                    //height
-            "./images/Rock-2.png")  //image
+            "./images/Rock-2.png")  //image*/
 
         this.height = 700
         this.width = 500
+//array needed ?
         this.ennemies = []
         this.score = 0
         this.level = 0
@@ -82,7 +74,7 @@ class Game {
     // Game Update
     update(){
         this.player.move()
-        this.ennemy.move()
+                
         
         // create the ending condition 
         if (this.lives === 0) {
@@ -95,34 +87,38 @@ class Game {
         }
 
         // score logic
-        if (this.ennemy.top > this.height) {
-            this.score+=1 ;
+        if (this.ennemy === true && this.ennemy.top > this.height) {
+            this.score += 1 
             document.getElementById("score").innerHTML = this.score
-            this.ennemy.element.remove()
+            delete this.ennemy
         }
+
+       
     }
 
 
     // how the levels increase to 100 and raise the difficulty
-    
-    
-    increaseTheLevel() {            
-        setInterval(()=>{
-            this.level ++
-            document.getElementById("level").innerHTML = this.level
+        
+    increaseTheLevel() {
+        const intervalId = setInterval(() => {
+            if (this.level >= 100) {
+                clearInterval(intervalId)
+            }
 
-            //raise the speed of the screen
-            this.gameScreenSpeed.style.animationDuration = this.speedAnimation[this.level/10]
-            }, 1000)  
+            else {
+                this.level ++
+                document.getElementById("level").innerHTML = this.level
+                this.gameScreenSpeed.style.animationDuration = this.speedAnimation[Math.floor(this.level/10)]
+            }
+        }, 1000)
     }
    
 
     // create the end game conditions
     endGame(status) {
         this.player.element.remove()
-        this.ennemy.element.remove()
-        
-        
+        this.ennemies.forEach(ennemy => ennemy.element.remove())
+               
         this.gameIsOver = true
 
     // display the endscreen
