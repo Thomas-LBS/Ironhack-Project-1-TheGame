@@ -95,7 +95,7 @@ span {
   display: none;
 }
 
-#loose-infos{
+#lose-infos{
   display: none;
 }
 
@@ -300,6 +300,10 @@ padding: 0 1em;
 /* small screen ---------------------------------------------------*/
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  #legend{
+    font-size: 0.95em;
+  }
+
   span {
     font-size: 1.6em;
   }
@@ -310,6 +314,10 @@ padding: 0 1em;
 /* medium screen ---------------------------------------------------*/
 
 @media (min-width: 1025px) and (max-width: 1440px) {
+  #legend{
+    font-size: 1.3em;
+  }
+  
   span {
     font-size: 1.8em;
   }
@@ -320,6 +328,10 @@ padding: 0 1em;
 /*large screen ---------------------------------------------------*/
 
 @media (min-width: 1441px) {
+  #legend{
+    font-size: 1.5em;
+  }
+  
   span {
     font-size: 2em;
   }

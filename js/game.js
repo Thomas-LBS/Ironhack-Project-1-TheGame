@@ -4,17 +4,22 @@ class Game {
         this.playScreen = document.getElementById("play-screen")    
         this.gameScreen = document.getElementById("game-screen")       
         this.endScreen = document.getElementById("end-screen")
-        this.looseScreen = document.getElementById("loose-infos")
+        this.loseScreen = document.getElementById("lose-infos")
         this.winScreen = document.getElementById("win-infos")
+
         this.playerImage = playerImageSelection
+
         this.gameScreenSpeed = document.getElementById("game-screen")
         this.gameScreenSpeed.style.animationDuration = "30s"
-        this.speedAnimation = ["30s", "27s", "24s", "21s", "18s", "15s", "11s", "7s", "3s", "1s"]
+        this.speedAnimation = ["30s", "25s", "20s", "15s", "12s", "8s", "5s", "3s", "2s", "1s"]
+        this.speedDirection = 1
+
         this.ambianceSound = new Audio("./sounds/Peritune-Sakuya2.mp3")
         this.winSound = new Audio("./sounds/success-fanfare-trumpets.mp3")
-        this.looseSound = new Audio("./sounds/knife-stab.mp3")
+        this.loseSound = new Audio("./sounds/knife-stab.mp3")
         this.collideSound = new Audio("./sounds/huge-slap.mp3")       
    
+
     // create a new player
         this.player = new Player(
             this.gameScreen,
@@ -29,7 +34,7 @@ class Game {
         this.width = 500
         this.ennemies = []
         this.score = 0
-        this.level = 0
+        this.level = 50
         this.lives = 3  
         this.gameIsOver = false
     }
@@ -60,17 +65,20 @@ class Game {
             this.ambianceSound.pause()
             // ending sounds
             if (this.lives === 0){
-                this.looseSound.play()
+                this.loseSound.play()
+                this.loseSound.volume = 0.5
             }
             if (this.level === 100){
                 this.winSound.play()
+                this.winSound.volume = 0.5
             }
-
-            return
+        return
         }
 
         // Continue the loop
         this.ambianceSound.play()
+        this.ambianceSound.volume = 0.1
+
         this.update()
         window.requestAnimationFrame(() => this.gameLoop())    
     }
@@ -79,26 +87,32 @@ class Game {
     update(){
 
         this.player.move()
-            
+
+        this.increaseSpeed()
+
+        //create new Ennemy randomly
+        this.createEnnemies()  
+                    
         // create the ending condition 
         if (this.lives === 0) {
-            this.endGame("loose")
+            this.endGame("lose")
         }
-
         // create a winning condition
         else if (this.level === 100) {
             this.endGame("win")
         }
 
+        // conditions for ennemies[]
         for (let i = 0; i < this.ennemies.length; i++) {
-            const ennemy = this.ennemies[i];
-            ennemy.move();
+            const ennemy = this.ennemies[i]
+            ennemy.move()
         
             // collision logic
             if (this.player.didCollide(ennemy)) {          
                 
                 //sound animation
                 this.collideSound.play()
+                this.collideSound.volume = 0.5
 
                 // remove the ennemy
                 ennemy.element.remove()
@@ -123,29 +137,27 @@ class Game {
             }
 
             
-        }
-
-        //create new Ennemy randomly
-        this.createEnnemies()        
+        }              
     }
+
 
     //create ennemies
     createEnnemies(){
         let ennemiesNumeber = 3
-        if (this.level <= 25){ennemiesNumeber = 3}
-        else if (this.level <= 50){ennemiesNumeber = 4}
-        else if (this.level <= 75){ennemiesNumeber = 5}
-        else if (this.level <= 100){ennemiesNumeber = 6}
+        if (this.level > 25){ennemiesNumeber = 4}
+        if (this.level > 50){ennemiesNumeber = 5}
+        if (this.level > 70){ennemiesNumeber = 6}
+        if (this.level > 90){ennemiesNumeber = 8}
+        
 
-        if (Math.random() > 0.99 && this.ennemies.length < ennemiesNumeber) {
+        if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
             this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 366), 1-75, 75, 75, "./images/Rock-1.png"))
         }
-        if (Math.random() > 0.99 && this.ennemies.length < ennemiesNumeber) {
+        if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
             this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 386), 1-125, 55, 125, "./images/Rock-2.png"))
         }
     }
     
-
 
     // how the levels increase to 100 and raise the difficulty
         
@@ -157,12 +169,23 @@ class Game {
 
             else {
                 this.level ++
-                document.getElementById("level").innerHTML = this.level
-                this.gameScreenSpeed.style.animationDuration = this.speedAnimation[Math.floor(this.level/10)]
+                document.getElementById("level").innerHTML = this.level    
             }
         }, 1000)
-    }   
+    }
+    
+    //increase the speed direction of the player and the ennemy
+    increaseSpeed () {
+        const value = Math.floor(1 + this.level / 10)        
+        this.speedDirection = value
+        this.gameScreenSpeed.style.animationDuration = this.speedAnimation[Math.floor(this.level/10)]
+        for (let i = 0; i < this.ennemies.length; i++) {
+            const ennemy = this.ennemies[i]
+            ennemy.ennemySpeed = value
+        }
+    }
 
+    
     // create the end game conditions
     endGame(status) {
         this.player.element.remove()
@@ -175,15 +198,15 @@ class Game {
         this.endScreen.style.display = "block"
 
         // display the information depending on the endGameStatus  
-        if (status === "loose"){
-            this.looseScreen.style.display = "block"
+        if (status === "lose"){
+            this.loseScreen.style.display = "block"
             this.winScreen.style.display = "none"
             this.playScreen.style.display = "none"
         }
 
         if (status === "win"){
             this.winScreen.style.display = "block"
-            this.looseScreen.style.display = "none"
+            this.loseScreen.style.display = "none"
             this.playScreen.style.display = "none"
         }
     }

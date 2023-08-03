@@ -57,8 +57,7 @@ window.onload = function () {
   })
 
   function launchGame() {
-    game = new Game(playerImageSelection)
-    increaseSpeedDirection ()
+    game = new Game(playerImageSelection)    
     game.start()    
   }
     
@@ -89,7 +88,7 @@ window.onload = function () {
         case "A":
         case "q":
         case "Q":
-        game.player.directionX = -speedDirection;
+        game.player.directionX = -game.speedDirection;
         break;
 
         case "ArrowUp":
@@ -97,19 +96,19 @@ window.onload = function () {
         case "W":
         case "z":
         case "Z":
-        game.player.directionY = -speedDirection;
+        game.player.directionY = -game.speedDirection;
         break;
 
         case "ArrowRight":
         case "d":
         case "D":
-        game.player.directionX = speedDirection;
+        game.player.directionX = game.speedDirection;
         break;
 
         case "ArrowDown":
         case "s":
         case "S":
-        game.player.directionY = speedDirection;
+        game.player.directionY = game.speedDirection;
         break;
       }
     }
@@ -168,19 +167,6 @@ window.onload = function () {
     }
   }
 
-  // increase the speed of the Player
-  let speedDirection = 1   
-  function increaseSpeedDirection () {
-      const intervalId = setInterval(() => {
-      if (game.gameIsOver) {
-        clearInterval(intervalId)
-      }
-
-      else {
-        speedDirection = Math.floor(1 + game.level / 10)
-      }
-    },1000)
-  }
       
   // Add the handleKeydown function as an event listener for the keydown event
   window.addEventListener("keydown", handleKeydown)
