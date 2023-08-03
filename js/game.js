@@ -22,11 +22,21 @@ class Game {
             this.playerImage)   //image
 
     
-    // create a 2nd ennemy        
-        /*this.ennemy2 = new Ennemy(
+    // create an ennemy
+
+        /*
+        this.ennemy = new Ennemy(
+            this.gameScreen,
+            (500-100)/2,
+            1,
+            100,
+            100,
+            "./images/Rock-1.png")
+        
+        this.ennemy2 = new Ennemy(
             this.gameScreen,
             (500-200)/2,            //left
-            5,                      //top
+            1,                      //top
             55,                     //width
             125,                    //height
             "./images/Rock-2.png")  //image*/
@@ -86,14 +96,37 @@ class Game {
             this.endGame("win")
         }
 
-        // score logic
-        if (this.ennemy === true && this.ennemy.top > this.height) {
-            this.score += 1 
-            document.getElementById("score").innerHTML = this.score
-            delete this.ennemy
+        for (let i = 0; i < this.ennemies.length; i++) {
+            const ennemy = this.ennemies[i];
+            ennemy.move();
+        
+            // collision logic
+            if (this.player.didCollide(ennemy)) {
+                ennemy.element.remove();
+                // Remove ennemy object from the array
+                this.ennemies.splice(i, 1);
+                // Reduce player's lives by 1
+                this.lives-- ;
+                document.getElementById("lives").innerHTML = this.lives
+                // Update the counter variable to account for the removed ennemy
+                i--;    
+            }
+
+            // score logic
+            else if (ennemy.top > this.height) {
+                
+                this.score++ 
+                document.getElementById("score").innerHTML = this.score
+                ennemy.element.remove()
+                this.ennemies.splice(i, 1)
+                i--
+            }
         }
 
-       
+        //create new Ennemy randomly
+        if (Math.random() > 0.98 && this.ennemies.length < 3) {
+            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 341), 1, 100, 100, "./images/Rock-1.png"))
+        } 
     }
 
 
@@ -101,7 +134,7 @@ class Game {
         
     increaseTheLevel() {
         const intervalId = setInterval(() => {
-            if (this.level >= 100) {
+            if (this.gameIsOver) {
                 clearInterval(intervalId)
             }
 

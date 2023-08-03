@@ -64,7 +64,7 @@ window.onload = function () {
     
   // Function that handles keydown event for AZERTY & QWERTY & ARROWS
   function handleKeydown(event) {
-    const key = event.key;
+    const key = event.key
     const possibleKeystrokes = [
       "ArrowLeft",
       "a", "A",
@@ -80,7 +80,7 @@ window.onload = function () {
     
     // Check if the pressed key is in the possibleKeystrokes array
     if (possibleKeystrokes.includes(key)) {
-    event.preventDefault();
+    event.preventDefault()
     
     // Update player's directionX and directionY based on the key pressed
       switch (key) {
@@ -117,7 +117,7 @@ window.onload = function () {
 
   // Function that handles keyup event for AZERTY & QWERTY & ARROWS
   function handleKeyUp(event) {
-    const key = event.key;
+    const key = event.key
     const possibleKeystrokes = [
       "ArrowLeft",
       "a", "A",
@@ -133,7 +133,7 @@ window.onload = function () {
     
     // Check if the pressed key is in the possibleKeystrokes array
     if (possibleKeystrokes.includes(key)) {
-    event.preventDefault();
+    event.preventDefault()
     
     // Update player's directionX and directionY based on the key pressed
       switch (key) {
@@ -172,7 +172,7 @@ window.onload = function () {
   let speedDirection = 1   
   function increaseSpeedDirection () {
       const intervalId = setInterval(() => {
-      if (game.level > 100) {
+      if (this.gameIsOver) {
         clearInterval(intervalId)
       }
 
