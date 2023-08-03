@@ -13,7 +13,7 @@ class Game {
         this.ambianceSound = new Audio("./sounds/Peritune-Sakuya2.mp3")
         this.winSound = new Audio("./sounds/success-fanfare-trumpets.mp3")
         this.looseSound = new Audio("./sounds/knife-stab.mp3")
-        this.collideSound = new Audio("/sounds/huge-slap.mp3")       
+        this.collideSound = new Audio("./sounds/huge-slap.mp3")       
    
     // create a new player
         this.player = new Player(
@@ -25,31 +25,11 @@ class Game {
             this.playerImage)   //image
 
     
-    // create an ennemy
-
-        /*
-        this.ennemy = new Ennemy(
-            this.gameScreen,
-            (500-100)/2,
-            1,
-            100,
-            100,
-            "./images/Rock-1.png")
-        
-        this.ennemy2 = new Ennemy(
-            this.gameScreen,
-            (500-200)/2,            //left
-            1,                      //top
-            55,                     //width
-            125,                    //height
-            "./images/Rock-2.png")  //image*/
-
         this.height = 700
         this.width = 500
-//array needed ?
         this.ennemies = []
         this.score = 0
-        this.level = 90
+        this.level = 0
         this.lives = 3  
         this.gameIsOver = false
     }
@@ -85,6 +65,7 @@ class Game {
             if (this.level === 100){
                 this.winSound.play()
             }
+
             return
         }
 
@@ -98,7 +79,7 @@ class Game {
     update(){
 
         this.player.move()
-               
+            
         // create the ending condition 
         if (this.lives === 0) {
             this.endGame("loose")
@@ -140,14 +121,30 @@ class Game {
                 this.ennemies.splice(i, 1)
                 i--
             }
+
+            
         }
 
         //create new Ennemy randomly
-        if (Math.random() > 0.98 && this.ennemies.length < 3) {
-            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 341), (1-100), 100, 100, "./images/Rock-1.png"))
-        }
-        
+        this.createEnnemies()        
     }
+
+    //create ennemies
+    createEnnemies(){
+        let ennemiesNumeber = 3
+        if (this.level <= 25){ennemiesNumeber = 3}
+        else if (this.level <= 50){ennemiesNumeber = 4}
+        else if (this.level <= 75){ennemiesNumeber = 5}
+        else if (this.level <= 100){ennemiesNumeber = 6}
+
+        if (Math.random() > 0.99 && this.ennemies.length < ennemiesNumeber) {
+            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 366), 1-75, 75, 75, "./images/Rock-1.png"))
+        }
+        if (Math.random() > 0.99 && this.ennemies.length < ennemiesNumeber) {
+            this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 386), 1-125, 55, 125, "./images/Rock-2.png"))
+        }
+    }
+    
 
 
     // how the levels increase to 100 and raise the difficulty
