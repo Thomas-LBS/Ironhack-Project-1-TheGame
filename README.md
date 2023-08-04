@@ -34,6 +34,7 @@ The purpose of this project is to consolidate and practice all the knowledge you
 </ul>
 
 <h3>Follow the Trello Board : <a href="https://trello.com/invite/b/c998qjYV/ATTI1df01b8c32d166cb3d20af9ba54e266d16489147/myfirstgameproject">Here</a></h3>
+<h3>Slides presentation : <a href="https://slides.com/thomaslebas/minimal">Here</a></h3>
 
 ## UX/UI Choices
 
