@@ -34,7 +34,7 @@ class Game {
         this.width = 500
         this.ennemies = []
         this.score = 0
-        this.level = 0
+        this.level = 95
         this.lives = 3  
         this.gameIsOver = false
     }
