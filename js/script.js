@@ -6,12 +6,14 @@ window.onload = function () {
   const homeBtn = document.getElementById("home-btn")
   const restartBtn2 = document.getElementById("restart-btn2")
   const homeBtn2 = document.getElementById("home-btn2")
+  const darkMode = document.getElementById("dark-mode-btn")
   const playerImmageBtn1 = document.getElementById("player-immage-btn1")
   const playerImmageBtn2 = document.getElementById("player-immage-btn2")
   const playerImmageBtn3 = document.getElementById("player-immage-btn3")
 
   // html elements to display: on/off
   const firstScreen = document.getElementById("first-screen")
+  const darkModeDiv = document.getElementById("dark-mode")
   const launchScreen = document.getElementById("launch-screen")
   const logoDisplay = document.getElementById("logo-big")
   const stats = document.getElementById("stats-container")
@@ -22,6 +24,7 @@ window.onload = function () {
   tryBtn.addEventListener("click", function () {    
     firstScreen.style.display = "none"
     logoDisplay.style.display = "none"
+    darkModeDiv.style.display = "none"
     launchScreen.style.display = "block"
     stats.style.display = "block"
     changeTheQuote ()           
@@ -215,6 +218,11 @@ window.onload = function () {
     return myQuote
   }
 
+  // Dark Mode Button
+  darkMode.addEventListener("click", function () {
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+  })
 }
 
 
