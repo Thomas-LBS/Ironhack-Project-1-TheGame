@@ -144,13 +144,13 @@ class Game {
     //create ennemies
     createEnnemies(){
         let ennemiesNumeber = 2
-        if (this.level > 25){ennemiesNumeber = 3}
-        if (this.level > 50){ennemiesNumeber = 4}
-        if (this.level > 70){ennemiesNumeber = 5}
-        if (this.level > 90){ennemiesNumeber = 7}
+        if (this.level >= 25){ennemiesNumeber = 3}
+        if (this.level >= 50){ennemiesNumeber = 4}
+        if (this.level >= 70){ennemiesNumeber = 5}
+        if (this.level >= 90){ennemiesNumeber = 7}
         
 
-        if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
+        if (Math.random() > 0.975 && this.ennemies.length < ennemiesNumeber) {
             this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 366), 1-75, 75, 75, "./images/Rock-1.png"))
         }
         if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
@@ -166,7 +166,6 @@ class Game {
             if (this.gameIsOver) {
                 clearInterval(intervalId)
             }
-
             else {
                 this.level ++
                 document.getElementById("level").innerHTML = this.level    
@@ -176,12 +175,16 @@ class Game {
     
     //increase the speed direction of the player and the ennemy
     increaseSpeed () {
-        const value = Math.floor(1 + this.level / 10)        
-        this.speedDirection = value
-        this.gameScreenSpeed.style.animationDuration = this.speedAnimation[Math.floor(this.level/10)]
+        const value = Math.floor(this.level / 10)
+
+        // player speed        
+        this.speedDirection = value + 1
+        // bg animation speed
+        this.gameScreenSpeed.style.animationDuration = this.speedAnimation[value]
+        //ennemy speed
         for (let i = 0; i < this.ennemies.length; i++) {
             const ennemy = this.ennemies[i]
-            ennemy.ennemySpeed = value
+            ennemy.ennemySpeed = value + 1
         }
     }
 
