@@ -36,6 +36,8 @@ The purpose of this project is to consolidate and practice all the knowledge you
 <h3>Follow the Trello Board : <a href="https://trello.com/invite/b/c998qjYV/ATTI1df01b8c32d166cb3d20af9ba54e266d16489147/myfirstgameproject">Here</a></h3>
 <h3>Slides presentation : <a href="https://slides.com/thomaslebas/minimal">Here</a></h3>
 
+<h3>Play the game with Gitpages : <a href="https://thomas-lbs.github.io/Ironhack-Project-1-TheGame/">Here</a></h3>
+
 ## UX/UI Choices
 
 <h2>Fonts</h2>
