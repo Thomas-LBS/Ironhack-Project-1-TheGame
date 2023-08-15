@@ -147,7 +147,7 @@ class Game {
         if (this.level >= 25){ennemiesNumeber = 2}
         if (this.level >= 50){ennemiesNumeber = 3}
         if (this.level >= 70){ennemiesNumeber = 4}
-        if (this.level >= 90){ennemiesNumeber = 6}
+        if (this.level >= 90){ennemiesNumeber = 5}
         
 
         if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
@@ -178,13 +178,13 @@ class Game {
         const value = Math.floor(this.level / 10)
 
         // player speed        
-        this.speedDirection = value + 1
+        this.speedDirection = value / 2 + 1
         // bg animation speed
         this.gameScreenSpeed.style.animationDuration = this.speedAnimation[value]
         //ennemy speed
         for (let i = 0; i < this.ennemies.length; i++) {
             const ennemy = this.ennemies[i]
-            ennemy.ennemySpeed = value + 1
+            ennemy.ennemySpeed = value / 2 + 1
         }
     }
 
