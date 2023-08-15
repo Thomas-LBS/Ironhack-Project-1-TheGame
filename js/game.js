@@ -143,17 +143,17 @@ class Game {
 
     //create ennemies
     createEnnemies(){
-        let ennemiesNumeber = 2
-        if (this.level >= 25){ennemiesNumeber = 3}
-        if (this.level >= 50){ennemiesNumeber = 4}
-        if (this.level >= 70){ennemiesNumeber = 5}
-        if (this.level >= 90){ennemiesNumeber = 7}
+        let ennemiesNumeber = 1
+        if (this.level >= 25){ennemiesNumeber = 2}
+        if (this.level >= 50){ennemiesNumeber = 3}
+        if (this.level >= 70){ennemiesNumeber = 4}
+        if (this.level >= 90){ennemiesNumeber = 6}
         
 
-        if (Math.random() > 0.975 && this.ennemies.length < ennemiesNumeber) {
+        if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
             this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 366), 1-75, 75, 75, "./images/Rock-1.png"))
         }
-        if (Math.random() > 0.95 && this.ennemies.length < ennemiesNumeber) {
+        if (Math.random() > 0.975 && this.ennemies.length < ennemiesNumeber) {
             this.ennemies.push(new Ennemy(this.gameScreen, Math.floor(30 + Math.random() * 386), 1-125, 55, 125, "./images/Rock-2.png"))
         }
     }
